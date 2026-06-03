@@ -1,0 +1,13 @@
+{
+  "name": "NEXORA — Solve Any Task Using AI",
+  "short_name": "NEXORA",
+  "description": "Real guides, real workflows, real results. Find the perfect AI tool for exactly what you need.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#2563EB",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "categories": ["productivity", "education", "business"]
+}

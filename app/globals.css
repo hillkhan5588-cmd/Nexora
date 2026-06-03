@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #2563EB33; }
+}
+
+@layer components {
+  .article-content h2 {
+    font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1rem;
+    color: rgb(15 23 42 / 1);
+  }
+  .dark .article-content h2 { color: rgb(241 245 249 / 1); }
+  .article-content h3 {
+    font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem;
+    color: rgb(15 23 42 / 1);
+  }
+  .dark .article-content h3 { color: rgb(241 245 249 / 1); }
+  .article-content p {
+    margin-bottom: 1.25rem; line-height: 1.85; font-size: 17px;
+    color: rgb(71 85 105 / 1);
+  }
+  .dark .article-content p { color: rgb(148 163 184 / 1); }
+  .article-content ul, .article-content ol {
+    margin-left: 1.5rem; margin-bottom: 1.25rem;
+    font-size: 17px; color: rgb(71 85 105 / 1);
+  }
+  .dark .article-content ul, .dark .article-content ol { color: rgb(148 163 184 / 1); }
+  .article-content li { margin-bottom: 0.5rem; }
+  .article-content strong { font-weight: 700; color: rgb(15 23 42 / 1); }
+  .dark .article-content strong { color: rgb(241 245 249 / 1); }
+  .article-content blockquote {
+    border-left: 4px solid #2563EB;
+    padding: 1rem 1.25rem;
+    background: #EFF6FF;
+    border-radius: 0 12px 12px 0;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: rgb(71 85 105 / 1);
+  }
+  .dark .article-content blockquote {
+    background: rgb(30 58 95 / 0.3);
+    color: rgb(148 163 184 / 1);
+  }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+/* ── Blog post content styles ── */
+.blog-post-content h2 {
+  font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem;
+  color: rgb(15 23 42 / 1); padding-top: 1.5rem;
+  border-top: 1px solid rgb(226 232 240 / 1);
+}
+.dark .blog-post-content h2 {
+  color: rgb(241 245 249 / 1);
+  border-top-color: rgb(51 65 85 / 1);
+}
+.blog-post-content p {
+  margin-bottom: 1.1rem; line-height: 1.8; font-size: 15px;
+  color: rgb(71 85 105 / 1);
+}
+.dark .blog-post-content p { color: rgb(148 163 184 / 1); }
+.blog-post-content strong { font-weight: 700; color: rgb(15 23 42 / 1); }
+.dark .blog-post-content strong { color: rgb(241 245 249 / 1); }
+.blog-post-content em { color: rgb(71 85 105 / 1); }
+.dark .blog-post-content em { color: rgb(148 163 184 / 1); }
+
+/* ── Section divider label ── */
+.section-label {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;
+}
+.section-label::before, .section-label::after {
+  content: ''; flex: 1; height: 1px; background: rgb(226 232 240 / 1);
+}
+.dark .section-label::before, .dark .section-label::after {
+  background: rgb(51 65 85 / 1);
+}
