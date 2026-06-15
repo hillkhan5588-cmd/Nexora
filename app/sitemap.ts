@@ -3,7 +3,7 @@ import { CATEGORIES } from '@/lib/categories';
 import { ARTICLES } from '@/lib/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://nexora.com';
+  const base = 'https://www.nexoratools.xyz';
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
