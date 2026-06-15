@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nexora.com'),
+  metadataBase: new URL('https://nexoratools.xyz'),
   title: {
     default: 'NEXORA — Solve Any Task Using AI in Seconds',
     template: '%s | NEXORA',
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
   description:
     'Real guides, real workflows, real results. Find the perfect AI tool for exactly what you need to do today.',
   keywords: ['AI tools', 'artificial intelligence', 'productivity', 'freelancing', 'automation'],
-  authors: [{ name: 'Alex Monroe', url: 'https://nexora.com/about' }],
+  authors: [{ name: 'Alex Monroe', url: 'https://nexoratools.xyz/about' }],
   creator: 'NEXORA',
   publisher: 'NEXORA',
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://nexora.com',
+    url: 'https://nexoratools.xyz',
     siteName: 'NEXORA',
     title: 'NEXORA — Solve Any Task Using AI in Seconds',
     description: 'Real guides, real workflows, real results — no fluff. Find the perfect AI tool for exactly what you need to do today.',
@@ -44,6 +44,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563EB" />
         <link rel="alternate" type="application/rss+xml" title="NEXORA RSS Feed" href="/feed.xml" />
+
+        {/* Google Analytics GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-96LM3LXM2E"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-96LM3LXM2E');
+            `,
+          }}
+        />
       </head>
       <body className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-200">
         <ThemeProvider>
