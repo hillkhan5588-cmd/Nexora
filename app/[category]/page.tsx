@@ -6,6 +6,7 @@ import EmailCapture from '@/components/EmailCapture';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { CATEGORIES, getCategoryBySlug } from '@/lib/categories';
 import { getArticlesByCategory } from '@/lib/articles';
+import { SITE_URL } from '@/lib/seo';
 
 interface Props {
   params: { category: string };
@@ -21,9 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${cat.name} — Best AI Guides & Tools`,
     description: cat.longDescription,
+    alternates: {
+      canonical: `${SITE_URL}/${cat.slug}`,
+    },
     openGraph: {
       title: `${cat.name} — NEXORA`,
       description: cat.longDescription,
+      url: `${SITE_URL}/${cat.slug}`,
     },
   };
 }
@@ -36,8 +41,8 @@ export default function CategoryPage({ params }: Props) {
 
   const breadcrumbSchema = {
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nexora.com' },
-      { '@type': 'ListItem', position: 2, name: cat.name, item: `https://nexora.com/${cat.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: cat.name, item: `${SITE_URL}/${cat.slug}` },
     ],
   };
 
