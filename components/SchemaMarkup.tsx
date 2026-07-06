@@ -1,3 +1,5 @@
+import { SITE_URL } from '@/lib/seo';
+
 interface Props {
   type: 'article' | 'website' | 'organization' | 'breadcrumb' | 'faq';
   data: Record<string, unknown>;
@@ -14,10 +16,10 @@ export default function SchemaMarkup({ type, data }: Props) {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'NEXORA',
-      url: 'https://nexora.com',
+      url: SITE_URL,
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://nexora.com/search?q={search_term_string}',
+        target: `${SITE_URL}/search?q={search_term_string}`,
         'query-input': 'required name=search_term_string',
       },
       ...data,
@@ -26,8 +28,8 @@ export default function SchemaMarkup({ type, data }: Props) {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'NEXORA',
-      url: 'https://nexora.com',
-      logo: 'https://nexora.com/logo.png',
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.png`,
       sameAs: ['https://twitter.com/nexora_ai', 'https://linkedin.com/company/nexora'],
       ...data,
     },
