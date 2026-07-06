@@ -13,6 +13,7 @@ import { buildArticleSchema, buildFaqSchema, buildMetadata, buildShareUrls } fro
 import { isValidVertical, VERTICALS, type Vertical } from "@/lib/taxonomy";
 import { getArticleBySlug, getArticleCanonicalPath, getRelatedArticles } from "@/lib/content";
 import { KCArticleCard } from "@/components/KCArticleCard";
+import { ArticleBody } from "@/components/ArticleBody";
 import { FormatBadge, VerticalBadge } from "@/components/Badges";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
@@ -91,8 +92,8 @@ export default function ArticlePage({ params }: Props) {
         </div>
       </div>
 
-      {/* Article body — replace with your existing rich-text/MDX renderer */}
-      <article className="prose prose-slate max-w-none">{article.body}</article>
+      {/* Article body — rendered via lightweight markdown parser */}
+      <ArticleBody body={article.body} />
 
       {/* TODO once Tools pillar is wired: render RelatedTools using article.relatedToolSlugs */}
 
