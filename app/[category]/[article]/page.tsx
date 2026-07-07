@@ -10,6 +10,7 @@ import ArticleCard from '@/components/ArticleCard';
 import { CATEGORIES, getCategoryBySlug } from '@/lib/categories';
 import { ARTICLES, getArticleBySlug } from '@/lib/articles';
 import { getBlogPostForArticle } from '@/lib/blogPosts';
+import { SITE_URL } from '@/lib/seo';
 
 interface Props {
   params: { category: string; article: string };
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: article.title,
       description: article.metaDescription,
     },
-    alternates: { canonical: `https://nexora.com/${params.category}/${params.article}` },
+    alternates: { canonical: `${SITE_URL}/${params.category}/${params.article}` },
   };
 }
 
@@ -55,19 +56,19 @@ export default function ArticlePage({ params }: Props) {
   const articleSchema = {
     headline: article.title,
     description: article.metaDescription,
-    author: { '@type': 'Person', name: article.author, url: 'https://nexora.com/about' },
-    publisher: { '@type': 'Organization', name: 'NEXORA', logo: 'https://nexora.com/logo.png' },
+    author: { '@type': 'Person', name: article.author, url: `${SITE_URL}/about` },
+    publisher: { '@type': 'Organization', name: 'NEXORA', logo: `${SITE_URL}/logo.png` },
     datePublished: article.date,
     dateModified: article.updated,
-    mainEntityOfPage: `https://nexora.com/${params.category}/${params.article}`,
-    image: 'https://nexora.com/og-image.png',
+    mainEntityOfPage: `${SITE_URL}/${params.category}/${params.article}`,
+    image: `${SITE_URL}/og-image.png`,
   };
 
   const breadcrumbSchema = {
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nexora.com' },
-      { '@type': 'ListItem', position: 2, name: article.categoryName, item: `https://nexora.com/${article.category}` },
-      { '@type': 'ListItem', position: 3, name: article.title, item: `https://nexora.com/${params.category}/${params.article}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: article.categoryName, item: `${SITE_URL}/${article.category}` },
+      { '@type': 'ListItem', position: 3, name: article.title, item: `${SITE_URL}/${params.category}/${params.article}` },
     ],
   };
 
@@ -142,7 +143,7 @@ export default function ArticlePage({ params }: Props) {
           </div>
 
           {/* Share bar top */}
-          <ShareBar title={article.title} />
+          <ShareBar title={article.title} path={`/${params.category}/${params.article}`} />
         </header>
 
         {/* ══════════════════════════════════════════
@@ -335,7 +336,7 @@ export default function ArticlePage({ params }: Props) {
 
             {/* Share bar bottom */}
             <div className="mt-8">
-              <ShareBar title={article.title} />
+              <ShareBar title={article.title} path={`/${params.category}/${params.article}`} />
             </div>
 
             {/* ══════════════════════════════════════════
@@ -369,27 +370,28 @@ export default function ArticlePage({ params }: Props) {
 }
 
 /* ── Share bar ── */
-function ShareBar({ title }: { title: string }) {
+function ShareBar({ title, path }: { title: string; path: string }) {
   const encoded = encodeURIComponent(title);
+  const url = encodeURIComponent(`${SITE_URL}${path}`);
   return (
     <div className="flex items-center gap-2 py-4 border-y border-slate-200 dark:border-slate-700 my-2 flex-wrap">
       <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 mr-1">Share:</span>
       <a
-        href={`https://twitter.com/intent/tweet?text=${encoded}&url=https://nexora.com`}
+        href={`https://twitter.com/intent/tweet?text=${encoded}&url=${url}`}
         target="_blank" rel="noopener noreferrer"
         className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-600 transition-all"
       >
         <Twitter size={13} /> Twitter
       </a>
       <a
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=https://nexora.com`}
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
         target="_blank" rel="noopener noreferrer"
         className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-600 transition-all"
       >
         <Linkedin size={13} /> LinkedIn
       </a>
       <a
-        href={`https://reddit.com/submit?title=${encoded}&url=https://nexora.com`}
+        href={`https://reddit.com/submit?title=${encoded}&url=${url}`}
         target="_blank" rel="noopener noreferrer"
         className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-600 transition-all"
       >
