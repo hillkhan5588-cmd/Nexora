@@ -137,3 +137,33 @@ export function buildFaqSchema(faqs: { question: string; answer: string }[]) {
     })),
   };
 }
+
+/** JSON-LD SoftwareApplication schema — used on individual AI tool profile pages. */
+export function buildSoftwareApplicationSchema(args: {
+  name: string;
+  description: string;
+  path: string;
+  applicationCategory?: string;
+  ratingValue?: number;
+  offers?: { price: string; priceCurrency?: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: args.name,
+    description: args.description,
+    url: `${SITE_URL}${args.path}`,
+    applicationCategory: args.applicationCategory ?? "BusinessApplication",
+    operatingSystem: "Web",
+    ...(args.ratingValue
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: args.ratingValue,
+            bestRating: 5,
+            ratingCount: 1,
+          },
+        }
+      : {}),
+  };
+}
