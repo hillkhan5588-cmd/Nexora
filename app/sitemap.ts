@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { CATEGORIES } from '@/lib/categories';
 import { ARTICLES } from '@/lib/articles';
 import { getAllArticles, getArticleCanonicalPath } from '@/lib/content';
+import { WRITING_TOOLS } from '@/lib/tools';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://www.nexoratools.xyz';
@@ -44,5 +45,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...categoryPages, ...articlePages, ...kcArticlePages];
+  // Individual AI tool profile pages (Writing AI — first batch)
+  const toolPages: MetadataRoute.Sitemap = WRITING_TOOLS.map((tool) => ({
+    url: `${base}/tools/${tool.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...categoryPages, ...articlePages, ...kcArticlePages, ...toolPages];
 }
