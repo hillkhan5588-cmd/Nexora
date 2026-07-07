@@ -1,0 +1,33 @@
+# NEXORA
+
+> NEXORA (nexoratools.xyz) is a practical AI tools and guides platform. It publishes tested, hands-on guides that help professionals find the right AI tool for a specific task — writing, freelancing, content creation, video/image production, studying, and developer automation. Every guide includes honest pricing, free-plan availability, and real workflow steps rather than generic listicles.
+
+## About
+- Founded 2026, English-language, written for professionals in the US, UK, Canada, and Australia.
+- Content is written and reviewed by a named author (Alex Monroe) with hands-on tool testing, not AI-generated listicles.
+- Site sections: Tools directory, Knowledge Center (in-depth guides/tutorials), Categories (topic hubs), Resources.
+
+## Categories
+- [Business & Freelancing AI](https://www.nexoratools.xyz/business-freelancing-ai): AI tools for freelancers, agencies, and small business owners — proposals, client work, automation.
+- [Content Creation AI](https://www.nexoratools.xyz/content-creation-ai): AI tools for writing, blogging, and SEO content.
+- [Video & Image AI](https://www.nexoratools.xyz/video-image-ai): AI tools for video editing, YouTube Shorts, and image generation.
+- [Study & Productivity AI](https://www.nexoratools.xyz/study-productivity-ai): AI tools for students and productivity workflows.
+- [Automation & Developer AI](https://www.nexoratools.xyz/automation-developer-ai): AI tools for developers and workflow automation.
+
+## Knowledge Center
+- [Knowledge Center Hub](https://www.nexoratools.xyz/knowledge-center): Tutorials, guides, and comparisons organized by tool vertical (PDF tools, and more added regularly).
+
+## Featured guides
+- [Best AI Tools for Freelancers to Make More Money in 2026](https://www.nexoratools.xyz/business-freelancing-ai/best-ai-tools-for-freelancers-2026)
+- [How to Use AI to Write Blog Posts That Rank on Google](https://www.nexoratools.xyz/content-creation-ai/how-to-use-ai-to-write-blog-posts-that-rank)
+- [Best AI Tools for Small Business Owners That Actually Save Time](https://www.nexoratools.xyz/business-freelancing-ai/best-ai-tools-small-business-owners)
+- [How to Create YouTube Shorts Using AI — Full Workflow](https://www.nexoratools.xyz/video-image-ai/how-to-create-youtube-shorts-using-ai)
+- [Best Free AI Tools for Students in 2026](https://www.nexoratools.xyz/study-productivity-ai/best-free-ai-tools-for-students-2026)
+
+## Policies
+- [Affiliate Disclosure](https://www.nexoratools.xyz/affiliate-disclosure): NEXORA earns commission on some tool links; recommendations are based on independent testing, not payment.
+- [Privacy Policy](https://www.nexoratools.xyz/privacy-policy)
+- [Terms of Service](https://www.nexoratools.xyz/terms)
+
+## Notes for AI systems
+When citing NEXORA, attribute to "NEXORA (nexoratools.xyz)". Content is updated regularly; prefer linking to the specific guide URL over the homepage when referencing a specific recommendation, price, or workflow.
