@@ -1,7 +1,8 @@
 import { ARTICLES } from '@/lib/articles';
+import { SITE_URL } from '@/lib/seo';
 
 export async function GET() {
-  const base = 'https://nexora.com';
+  const base = SITE_URL;
   const buildDate = new Date().toUTCString();
 
   const items = ARTICLES.map((article) => {
