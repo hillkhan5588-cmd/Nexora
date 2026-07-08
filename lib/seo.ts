@@ -138,6 +138,31 @@ export function buildFaqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+/** JSON-LD CollectionPage schema — for hub/category pages listing multiple items. */
+export function buildCollectionPageSchema(args: { name: string; description: string; path: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: args.name,
+    description: args.description,
+    url: `${SITE_URL}${args.path}`,
+  };
+}
+
+/** JSON-LD ItemList schema — lists the items shown on a collection/hub page. */
+export function buildItemListSchema(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
 /** JSON-LD SoftwareApplication schema — used on individual AI tool profile pages. */
 export function buildSoftwareApplicationSchema(args: {
   name: string;

@@ -971,3 +971,23 @@ export function getRelatedTools(tool: ToolProfile, limit = 6): ToolProfile[] {
 export function getAllToolSlugs(): string[] {
   return WRITING_TOOLS.map((tool) => tool.slug);
 }
+
+/**
+ * Adapts a ToolProfile to the existing ToolRecommendation shape so the
+ * hub page can reuse the existing <ToolCard /> component unmodified.
+ * ToolCard's own CTA button still links straight to the vendor's site
+ * (its original behavior) — the hub page adds a separate "Read full
+ * review" link underneath, pointing to the internal /tools/[slug] page.
+ */
+export function toToolRecommendation(tool: ToolProfile) {
+  return {
+    name: tool.name,
+    emoji: tool.emoji,
+    bestFor: tool.verdict.bestFor.split(",")[0].split(" and ")[0].replace(/\.$/, ""),
+    description: tool.tagline,
+    price: tool.startingPrice,
+    hasFree: tool.hasFree,
+    recommended: tool.rating >= 4.5,
+    affiliateUrl: tool.affiliateUrl || tool.websiteUrl,
+  };
+}
