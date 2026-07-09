@@ -20,6 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/knowledge-center`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.95 },
     { url: `${base}/categories`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${base}/resources`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    // Previously missing from the sitemap entirely
+    { url: `${base}/categories/writing-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${base}/comparisons/jasper-ai-vs-writesonic`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   ];
 
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({

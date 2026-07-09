@@ -4,9 +4,13 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import { SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nexoratools.xyz'),
+  // Was hardcoded as 'https://nexoratools.xyz' (no www), which didn't match
+  // SITE_URL in lib/seo.ts ('https://www.nexoratools.xyz'). Now both come
+  // from the same single source of truth.
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'NEXORA — Solve Any Task Using AI in Seconds',
     template: '%s | NEXORA',
@@ -14,14 +18,14 @@ export const metadata: Metadata = {
   description:
     'Real guides, real workflows, real results. Find the perfect AI tool for exactly what you need to do today.',
   keywords: ['AI tools', 'artificial intelligence', 'productivity', 'freelancing', 'automation'],
-  authors: [{ name: 'Alex Monroe', url: 'https://nexoratools.xyz/about' }],
+  authors: [{ name: 'Alex Monroe', url: `${SITE_URL}/about` }],
   creator: 'NEXORA',
   publisher: 'NEXORA',
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://nexoratools.xyz',
+    url: SITE_URL,
     siteName: 'NEXORA',
     title: 'NEXORA — Solve Any Task Using AI in Seconds',
     description: 'Real guides, real workflows, real results — no fluff. Find the perfect AI tool for exactly what you need to do today.',
