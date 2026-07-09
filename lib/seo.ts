@@ -45,8 +45,12 @@ export function buildMetadata({
   // and the missing-www bug from ever coming back on a new page.
   const canonicalUrl = `${SITE_URL}${path}`;
 
+  // NOTE: title is intentionally NOT suffixed with "| NEXORA" here — the
+  // root layout (app/layout.tsx) already applies a title template of
+  // "%s | NEXORA" to every page automatically. Appending it again here
+  // was producing doubled titles like "Page Title | NEXORA | NEXORA".
   return {
-    title: `${title} | ${SITE_NAME}`,
+    title,
     description,
     alternates: {
       canonical: canonicalUrl,
